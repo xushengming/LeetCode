@@ -1,4 +1,4 @@
-public class _10RegularExpressionMatching {
+public class _10_RegularExpressionMatching {
 //    public boolean isMatch(String s, String p) {
 //        if(s.length() == 0){
 //            if(p.length() == 0){
@@ -56,7 +56,7 @@ public class _10RegularExpressionMatching {
 
 
     public static void main(String[] args) {
-        _10RegularExpressionMatching regularExpressionMatching = new _10RegularExpressionMatching();
+        _10_RegularExpressionMatching regularExpressionMatching = new _10_RegularExpressionMatching();
         String s = "a";
         String p = "ab*";
         System.out.println("result = " + regularExpressionMatching.isMatch(s, p));

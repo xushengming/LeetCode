@@ -1,9 +1,8 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _15ThreeSum {
+public class _15_ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         if(nums == null || nums.length <= 0){
@@ -53,7 +52,7 @@ public class _15ThreeSum {
     }
 
     public static void main(String[] args) {
-        _15ThreeSum threeSum = new _15ThreeSum();
+        _15_ThreeSum threeSum = new _15_ThreeSum();
         int[] nums = {-1, 0, 1, 2, -1, -4};
         List<List<Integer>> result = threeSum.threeSum(nums);
         int length = result.size();

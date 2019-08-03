@@ -1,4 +1,4 @@
-public class _4MediaOfTwoSortedArrays {
+public class _4_MediaOfTwoSortedArrays {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int length1 = nums1.length;
         int length2 = nums2.length;

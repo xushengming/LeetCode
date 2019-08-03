@@ -1,4 +1,4 @@
-public class _6ZigZagConversion {
+public class _6_ZigZagConversion {
     public String convert(String s, int numRows) {
         if(numRows <= 1 || s.length() == 0){
             return s;
@@ -29,7 +29,7 @@ public class _6ZigZagConversion {
     }
 
     public static void main(String[] args) {
-        _6ZigZagConversion conversion = new _6ZigZagConversion();
+        _6_ZigZagConversion conversion = new _6_ZigZagConversion();
         String input = "PAYPALISHIRING";
         int rows = 3;
         String result = conversion.convert(input, rows);

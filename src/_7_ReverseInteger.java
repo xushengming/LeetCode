@@ -1,4 +1,4 @@
-public class _7ReverseInteger {
+public class _7_ReverseInteger {
     public int reverse(int x) {
         if( x == 0){
             return x;
@@ -34,7 +34,7 @@ public class _7ReverseInteger {
 
     public static void main(String[] args) {
         int x = 1534236469;
-        _7ReverseInteger reverseInteger = new _7ReverseInteger();
+        _7_ReverseInteger reverseInteger = new _7_ReverseInteger();
         System.out.println("result: " + reverseInteger.reverse(x));
     }
 }

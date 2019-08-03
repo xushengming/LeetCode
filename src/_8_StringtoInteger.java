@@ -1,4 +1,4 @@
-public class _8StringtoInteger {
+public class _8_StringtoInteger {
     public int myAtoi(String str) {
         int i = 0;
         while (i < str.length() && str.charAt(i) == ' '){
@@ -35,7 +35,7 @@ public class _8StringtoInteger {
     }
 
     public static void main(String[] args) {
-        _8StringtoInteger stringtoInteger = new _8StringtoInteger();
+        _8_StringtoInteger stringtoInteger = new _8_StringtoInteger();
         String input = "   +434fdsf323 vcvads";
         System.out.println("result: " + stringtoInteger.myAtoi(input));
     }

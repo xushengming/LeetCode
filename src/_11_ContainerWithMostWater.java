@@ -1,4 +1,4 @@
-public class _11ContainerWithMostWater {
+public class _11_ContainerWithMostWater {
     public int maxArea(int[] height) {
         int maxArea = 0;
         for (int i = 0; i < height.length; i++){
@@ -27,7 +27,7 @@ public class _11ContainerWithMostWater {
         return max;
     }
     public static void main(String[] args) {
-        _11ContainerWithMostWater containerWithMostWater = new _11ContainerWithMostWater();
+        _11_ContainerWithMostWater containerWithMostWater = new _11_ContainerWithMostWater();
         int[] height = new int[]{1,8,6,2,5,4,8,3,7};
         System.out.println("containerWithMostWater = " + containerWithMostWater.maxArea2(height));
     }

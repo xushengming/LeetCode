@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class _13RomanToInteger {
+public class _13_RomanToInteger {
     public int romanToInt2(String s) {
         if(s.length() == 0){
             return 0;
@@ -83,7 +83,7 @@ public class _13RomanToInteger {
         return result;
     }
     public static void main(String[] args) {
-        _13RomanToInteger romanToInteger = new _13RomanToInteger();
+        _13_RomanToInteger romanToInteger = new _13_RomanToInteger();
         String s = "MDCCCLXXXIV";
         String ss = "MCMXCIV";
         System.out.println("romanToInteger = " + romanToInteger.romanToInt(ss));

@@ -1,4 +1,4 @@
-public class _9PalindromeNumber {
+public class _9_PalindromeNumber {
     public boolean isPalindrome(int x) {
         if(x < 0){
             return false;
@@ -25,7 +25,7 @@ public class _9PalindromeNumber {
     }
 
     public static void main(String[] args) {
-        _9PalindromeNumber palindromeNumber = new _9PalindromeNumber();
+        _9_PalindromeNumber palindromeNumber = new _9_PalindromeNumber();
         int x = 121;
         System.out.println("palindromeNumber = " + palindromeNumber.isPalindrome2(x));
         int y = 0;

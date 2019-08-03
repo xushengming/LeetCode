@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class _12IntegerToRoman {
+public class _12_IntegerToRoman {
     public String intToRoman(int num) {
         HashMap<Integer, String> symbolMap = new HashMap<Integer, String>(7);
         symbolMap.put(1, "I");
@@ -56,7 +56,7 @@ public class _12IntegerToRoman {
     }
 
     public static void main(String[] args) {
-        _12IntegerToRoman integerToRoman = new _12IntegerToRoman();
+        _12_IntegerToRoman integerToRoman = new _12_IntegerToRoman();
         int num = 1000;
         System.out.println("integerToRoman = " + integerToRoman.intToRoman(num));
     }

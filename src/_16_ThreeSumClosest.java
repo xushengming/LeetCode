@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class _16ThreeSumClosest {
+public class _16_ThreeSumClosest {
     public int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
         int length = nums.length;
@@ -45,7 +45,7 @@ public class _16ThreeSumClosest {
     }
 
     public static void main(String[] args) {
-        _16ThreeSumClosest threeSumClosest = new _16ThreeSumClosest();
+        _16_ThreeSumClosest threeSumClosest = new _16_ThreeSumClosest();
         int[] nums = {0,2,1,-3};
         int result = threeSumClosest.threeSumClosest(nums, 1);
         System.out.println("result " + result);

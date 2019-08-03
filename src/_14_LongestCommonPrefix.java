@@ -1,4 +1,4 @@
-public class _14LongestCommonPrefix {
+public class _14_LongestCommonPrefix {
     public String longestCommonPrefix_whole(String[] strs) {
         int length = strs.length;
         if(length == 0){
@@ -78,7 +78,7 @@ public class _14LongestCommonPrefix {
         return result;
     }
     public static void main(String[] args) {
-        _14LongestCommonPrefix longestCommonPrefix = new _14LongestCommonPrefix();
+        _14_LongestCommonPrefix longestCommonPrefix = new _14_LongestCommonPrefix();
         String[] intput = new String[]{"ac","c","c"};
         System.out.println("longestCommonPrefix = " + longestCommonPrefix.longestCommonPrefix(intput));
     }

@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class _1TwoSum {
+public class _1_TwoSum {
     public int[] twoSum(int[] nums, int target) {
         for(int i = 0; i < nums.length; i++){
             for(int j = i + 1; j < nums.length; j++){
@@ -25,7 +25,7 @@ public class _1TwoSum {
     public static void main(String[] args) {
         int[] arrays = {2, 11, 7, 15};
         int target = 9;
-        _1TwoSum instance = new _1TwoSum();
+        _1_TwoSum instance = new _1_TwoSum();
         int[] result = instance.twoSumHashMap(arrays, target);
         if(result != null){
             StringBuilder sb = new StringBuilder();
