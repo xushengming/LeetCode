@@ -97,7 +97,7 @@ public class _37_Sudoku_Solver {
         {'.','.','.','.','.','.','.','.','6'},
         {'.','.','.','2','7','5','9','.','.'}};
         _37_Sudoku_Solver solver = new _37_Sudoku_Solver();
-        solver.solveSudoku_DFS(board);
+        solver.solveSudokuDFS(board);
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9; j++){
                System.out.print(board[i][j] + ", ");
