@@ -38,7 +38,7 @@ public class _33_Search_in_Rotated_Sorted_Array {
             int mid = (lo + hi) / 2;
             int realMid = (mid + rot) % nums.length;
             if(nums[realMid] == target){
-                return mid;
+                return realMid;
             }else if(nums[realMid] < target){
                 lo = mid + 1;
             }else{
