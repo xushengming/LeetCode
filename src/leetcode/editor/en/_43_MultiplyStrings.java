@@ -30,10 +30,10 @@ import java.util.ArrayList;
 public class _43_MultiplyStrings{
       public static void main(String[] args) {
           Solution solution = new _43_MultiplyStrings().new Solution();
-          System.out.println(solution.multiply("123", "456"));
-          System.out.println(solution.multiply("2", "3"));
-          System.out.println(solution.multiply("238374828", "0"));
-          System.out.println(solution.multiply("238374828", "23982132"));
+          System.out.println(solution.multiply2("123", "456"));
+          System.out.println(solution.multiply2("2", "3"));
+          System.out.println(solution.multiply2("238374828", "0"));
+          System.out.println(solution.multiply2("238374828", "23982132"));
       }
       
 
@@ -124,6 +124,31 @@ class Solution {
             sumCarry = 0;
         }
         return sum;
+    }
+    public String multiply2(String num1, String num2) {
+        int[] sum = new int[num1.length() + num2.length()];
+        int p1, p2;
+        for (int i = num1.length() - 1; i >= 0; i--){
+            for (int j = num2.length() - 1; j >= 0; j--){
+                p1 = i + j;
+                p2 = i + j + 1;
+                int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                int result = mul + sum[p2];
+                sum[p2] = result % 10;
+                sum[p1] += result / 10;
+            }
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int num : sum){
+            if(!(stringBuilder.length() == 0 && num == 0)){
+                stringBuilder.append(num);
+            }
+        }
+        if(stringBuilder.length() == 0){
+            return "0";
+        }else{
+            return stringBuilder.toString();
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
