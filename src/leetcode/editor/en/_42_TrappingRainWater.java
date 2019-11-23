@@ -20,7 +20,7 @@ public class _42_TrappingRainWater{
            int[] array = {0,1,0,2,1,0,1,3,2,1,2,1};
 //          int[] array = {4, 2, 3};
 //          int[] array = {4, 2, 0, 3, 2, 5};
-          int result = solution.trap(array);
+          int result = solution.trap2(array);
            System.out.println(result);
       }
       
@@ -56,6 +56,28 @@ class Solution {
             }
         }
         return rainCount;
+    }
+    public int trap2(int[] height) {
+        int leftMax = 0;
+        int rightMax = 0;
+        int sum = 0;
+        int left = 0, right = height.length - 1;
+        while (left < right){
+            if(height[left] < height[right]){
+                if(leftMax <= height[left]){
+                    leftMax = height[left++];
+                }else{
+                    sum += leftMax - height[left++];
+                }
+            }else{
+                if(rightMax <= height[right]){
+                    rightMax = height[right--];
+                }else{
+                    sum += rightMax - height[right--];
+                }
+            }
+        }
+        return sum;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
