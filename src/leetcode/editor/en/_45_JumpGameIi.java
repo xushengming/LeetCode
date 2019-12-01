@@ -26,7 +26,7 @@
           int[] array = new int[]{5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5};
 //          int[] array = new int[]{7,8,4,2,0,6,4,1,8,7,1,7,4,1,4,1,2,8,2,7,3,7,8,2,4,4,5,3,5,6,8,5,4,4,7,4,3,4,8,1,1,9,0,8,2};
           long start = System.currentTimeMillis();
-          System.out.println(solution.jump(array));
+          System.out.println(solution.jumpBFS(array));
           long end = System.currentTimeMillis();
           System.out.println("cost " + (end - start));
       }
@@ -34,6 +34,26 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    public int jumpBFS(int[] nums) {
+        if(nums == null || nums.length <= 1){
+            return 0;
+        }
+        int currentIndex = 0;
+        int currentMax = 0;
+        int nextMax = 0;
+        int level = 0;
+        while (currentMax - currentIndex + 1 > 0){
+            level++;
+            for (; currentIndex <= currentMax; currentIndex++){
+                nextMax = Math.max(nextMax, nums[currentIndex] + currentIndex);
+                if(nextMax >= nums.length - 1){
+                    return level;
+                }
+            }
+            currentMax = nextMax;
+        }
+        return level;
+    }
     public int jump(int[] nums) {
         if(nums == null || nums.length <= 0){
             return 0;
