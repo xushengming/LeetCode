@@ -1,3 +1,4 @@
+@Deprecated
 public class _10_RegularExpressionMatching {
 //    public boolean isMatch(String s, String p) {
 //        if(s.length() == 0){
@@ -50,7 +51,7 @@ public class _10_RegularExpressionMatching {
                 return true;
             }
         }
-        return isMatch(s.substring(1), p.substring(2));
+        return isMatch(s.substring(indexS), p.substring(2));
 
     }
 
