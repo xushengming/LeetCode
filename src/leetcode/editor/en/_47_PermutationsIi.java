@@ -22,7 +22,7 @@ public class _47_PermutationsIi{
         Solution solution = new _47_PermutationsIi().new Solution();
 //          int[] nums = new int[]{1, 1, 2};
         int[] nums = new int[]{2, 2, 1, 1};
-        List<List<Integer>> result = solution.permuteUnique3(nums);
+        List<List<Integer>> result = solution.permuteUnique4(nums);
         for (List<Integer> list : result){
             for (int num : list){
                 System.out.print(num + " ");
@@ -34,11 +34,35 @@ public class _47_PermutationsIi{
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        /**
-         * most fast
-         * @param nums
-         * @return
-         */
+        public List<List<Integer>> permuteUnique4(int[] nums) {
+            if(nums == null || nums.length == 0){
+                return new ArrayList<>();
+            }
+            Arrays.sort(nums);
+            List<List<Integer>> result = new ArrayList<>();
+            permuteUniqueBacktrack(nums, result, new ArrayList<>(), new boolean[nums.length]);
+            return result;
+        }
+
+        private void permuteUniqueBacktrack(int[] nums, List<List<Integer>> result,
+                                            List<Integer> currentList, boolean[] used){
+            if(currentList.size() == nums.length){
+                result.add(new ArrayList<>(currentList));
+                return;
+            }
+            for (int i = 0; i < nums.length; i++){
+                if(used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])){
+                    continue;
+                }else{
+                    used[i] = true;
+                    currentList.add(nums[i]);
+                    permuteUniqueBacktrack(nums, result, currentList, used);
+                    currentList.remove(currentList.size() - 1);
+                    used[i] = false;
+                }
+            }
+        }
+
         public List<List<Integer>> permuteUnique3(int[] nums) {
             if(nums == null || nums.length == 0){
                 return new ArrayList<>();
