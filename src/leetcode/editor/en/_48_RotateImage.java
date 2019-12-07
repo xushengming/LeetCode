@@ -71,24 +71,16 @@ class Solution {
         int size = matrix.length;
         for (int i = 0; i < size / 2; i++){
             int start = i;
-            int end = size - i;
+            int end = size - 1 - start;
             for (int j = start; j < end; j++){
+                int offset = j - start;
                 int tmp = matrix[i][j];
-                if(i + j != size - 1){
-                    matrix[i][j] = matrix[size - 1 - j][i];
-                }
-                if(size - 1 - j != i){
-                    matrix[size - 1 - j][i] = matrix[size - 1 - i][size - 1 - j];
-                }
-                if(size - 1 - i + size - 1 - j != size - 1){
-                    matrix[size - 1 - i][size - 1 - j] = matrix[j][size - 1 - i];
-                }
-                if(j != size - 1 - i){
-                    matrix[j][size - 1 - i] = tmp;
-                }
+                matrix[i][j] = matrix[end - offset][i];
+                matrix[end - offset][i] = matrix[end][end - offset];
+                matrix[end][end - offset] = matrix[j][end];
+                matrix[j][end] = tmp;
             }
         }
-        
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
