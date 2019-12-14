@@ -19,7 +19,6 @@
 // Related Topics Array Sort
   package leetcode.editor.en;
 
-import sun.tools.jstat.Literal;
 
 import java.util.*;
 
