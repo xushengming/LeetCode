@@ -81,7 +81,13 @@ public class _68_TextJustification{
           String[] strings = new String[]{"Science","is","what","we","understand","well","enough","to","explain",
                   "to","a","computer.","Art","is","everything","else","we","do"};
           int width = 20;
-          Utils.printStringList(solution.fullJustify(strings, width));
+          List<String> result = solution.fullJustify(strings, width);
+          for (String str : result){
+              System.out.print("[");
+              System.out.print(str);
+              System.out.print("]");
+              System.out.println();
+          }
       }
       
 
@@ -94,71 +100,47 @@ class Solution {
         int lengthOfWords = 0;
         String space = ".";
         while (end < words.length){
-            if(lengthOfWords > 0){
-                lengthOfWords++;
-            }
             lengthOfWords += words[end].length();
-            if(lengthOfWords > maxWidth){
+            int spaceLength = end - start;
+            if(lengthOfWords + spaceLength > maxWidth){
                 lengthOfWords -= words[end].length();
-                lengthOfWords--;
                 end--;
-            }else if(lengthOfWords < maxWidth && end < words.length - 1){
+            }else if(lengthOfWords + spaceLength < maxWidth && end < words.length - 1){
                 end++;
                 continue;
             }
             StringBuilder stringBuilder = new StringBuilder();
-            if(end - start + 1 == 1){
+            int wordsCount = end - start + 1;
+            int spaceCount = maxWidth - lengthOfWords;
+            if(wordsCount == 1){
                 stringBuilder.append(words[start]);
-                for (int i = 0; i < maxWidth - lengthOfWords; i++){
+                for (int i = 0; i < spaceCount; i++){
                     stringBuilder.append(space);
-                }
-            }else if(end - start + 1 == 2){
-                stringBuilder.append(words[start]);
-                if(end == words.length - 1){
-                    stringBuilder.append(space);
-                    stringBuilder.append(words[end]);
-                    int length = stringBuilder.length();
-                    for (int i = 0; i < maxWidth - length; i++){
-                        stringBuilder.append(space);
-                    }
-                }else{
-                    for (int i = 0; i < maxWidth - lengthOfWords + 1; i++){
-                        stringBuilder.append(space);
-                    }
-                    stringBuilder.append(words[end]);
                 }
             }else{
-                if(end == words.length - 1){
-                    for (int i = start; i <= end; i++){
-                        stringBuilder.append(words[i]);
-                        if(i != end){
-                            stringBuilder.append(space);
+                int eachSpace = spaceCount / (wordsCount - 1);
+                int remainder = spaceCount % (wordsCount - 1);
+                for (int i = start; i <= end; i++){
+                    stringBuilder.append(words[i]);
+                    int count = 0;
+                    if(i != end){
+                        if(end == words.length - 1){
+                            count = 1;
+                        }else{
+                            count = eachSpace + (remainder > 0 ? 1 : 0);
+                            if(remainder > 0){
+                                remainder--;
+                            }
                         }
                     }
-                    int length = stringBuilder.length();
-                    for (int i = 0; i < maxWidth - length; i++){
+                    for (int j = 0; j < count; j++){
                         stringBuilder.append(space);
                     }
-                }else{
-                    int leftSpace = 1, rightSpace = 1;
-                    if(lengthOfWords < maxWidth){
-                        int offset = maxWidth - lengthOfWords;
-                        leftSpace += offset % 2 == 0 ? offset / 2 : offset / 2 + 1;
-                        rightSpace += offset / 2;
-                    }
-                    stringBuilder.append(words[start++]);
-                    for (int i = 0; i < leftSpace; i++){
+                }
+                int offset = maxWidth - stringBuilder.length();
+                if(offset > 0){
+                    for (int i = 0; i < offset; i++){
                         stringBuilder.append(space);
-                    }
-                    stringBuilder.append(words[start++]);
-                    for (int i = 0; i < rightSpace; i++){
-                        stringBuilder.append(space);
-                    }
-                    for (int i = start; i <= end; i++){
-                        stringBuilder.append(words[i]);
-                        if(i != end){
-                            stringBuilder.append(space);
-                        }
                     }
                 }
             }
