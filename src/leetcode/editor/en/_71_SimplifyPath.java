@@ -58,7 +58,7 @@ import java.util.Stack;
 
 public class _71_SimplifyPath{
       public static void main(String[] args) {
-           Solution solution = new _71_SimplifyPath().new Solution();
+           Solution solution = new _71_SimplifyPath.Solution();
            System.out.println(solution.simplifyPath("/a//b////c/d//././/..") + " ==== /a/b/c");
           System.out.println(solution.simplifyPath("/a/../../b/../c//.//") + " ==== /c");
           System.out.println(solution.simplifyPath("/a/./b/../../c/") + " ==== /c");
@@ -70,7 +70,7 @@ public class _71_SimplifyPath{
       
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+public static class Solution {
     public String simplifyPath(String path) {
         if(path == null || path.length() == 0){
             return "/";
