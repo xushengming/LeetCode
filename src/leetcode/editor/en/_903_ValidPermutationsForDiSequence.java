@@ -48,14 +48,69 @@ public class _903_ValidPermutationsForDiSequence{
       public static void main(String[] args) {
            Solution solution = new Solution();
            long start = System.currentTimeMillis();
-           int result = solution.numPermsDISequence("IDDDIIDIIIIIIIIDIDID");
+           int result = solution.numPermsDISequence_DP_N3("IDDDIIDIIIIIIIIDIDID");
            long end = System.currentTimeMillis();
-           System.out.println(result + " cost: " + (end - start));
+           System.out.println(result + " cost: " + (end - start) + " --- " + solution.numPermsDISequence_DP_N3("IDDDIIDIIIIIIIIDIDID"));
+           System.out.println(solution.numPermsDISequence_DP_N3("DID") + " --- " + solution.numPermsDISequence_DP_N2("DID"));
       }
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
 public static class Solution {
+    public int numPermsDISequence_DP_N3(String S) {
+        int length = S.length();
+        int mod = 1000000007;
+        int[][] dp = new int[length + 1][length + 1];
+//        dp[0][0] = 1;
+        Arrays.fill(dp[0], 1);
+        for(int i = 1; i <= length; i++){
+            for(int j = 0; j <= i; j++){
+                if(S.charAt(i - 1) == 'D'){
+                    for(int k = j; k <= i - 1; k++){
+                        dp[i][j] = (dp[i][j] + dp[i - 1][k]) % mod;
+                    }
+
+                }else{
+                    for(int k = 0; k <= j - 1; k++){
+                        dp[i][j] = (dp[i][j] + dp[i - 1][k]) % mod;
+                    }
+                }
+            }
+        }
+        int result = 0;
+        for(int i = 0; i <= length; i++){
+            result += dp[length][i];
+            result = result % mod;
+        }
+        return result;
+    }
+
+    public int numPermsDISequence_DP_N2(String S) {
+        int length = S.length();
+        int mod = 1000000007;
+        int[][] dp = new int[length + 1][length + 1];
+        dp[0][0] = 1;
+        for(int i = 1; i <= length; i++){
+            if(S.charAt(i - 1) == 'D'){
+                int cur = 0;
+                for (int j = i; j >= 0; j--){
+                    dp[i][j] = cur = (cur + dp[i - 1][j]) % mod;
+                }
+            }else{
+                int cur = 0;
+                for (int j = 1; j <= i; j++){
+                    dp[i][j] = cur = (cur + dp[i - 1][j - 1]) % mod;
+                }
+            }
+        }
+        int result = 0;
+        for(int i = 0; i <= length; i++){
+            result += dp[length][i];
+            result = result % mod;
+        }
+        return result;
+    }
+
     public int numPermsDISequence(String S) {
         if(S == null || S.length() == 0){
             return 0;

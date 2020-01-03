@@ -11,6 +11,7 @@ public class _903_ValidPermutationsForDiSequenceTest {
     public void test(){
         _903_ValidPermutationsForDiSequence.Solution solution = new _903_ValidPermutationsForDiSequence.Solution();
         Assert.assertThat(solution.numPermsDISequence("DID"), is(5));
+        Assert.assertThat(solution.numPermsDISequence_numPermsDISequence_DP_N2("IDDDIIDIIIIIIIIDIDID"), is(853197538));
     }
 
 }
